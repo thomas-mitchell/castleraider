@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"anim",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"anim",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
