@@ -9,11 +9,25 @@ function player_attack_state(){
 	
 	// check state
 	if (image_index >= image_number - sprite_get_speed(sprite_index)/room_speed) {
-		if (hsp != 0) {
-			state = states.WALK;	
+		if (!on_ground()) {
+			state = states.JUMP;
 		} else {
-			state = states.IDLE;	
+			if (hsp != 0) {
+				state = states.WALK;	
+			} else {
+				state = states.IDLE;	
+			}
 		}
+	}
+	
+	if (jump) {
+		jumped();
+		state = states.ATTACK;
+	}
+	
+	// enable smaller jumps
+	if (vsp < 0 && !jump_held) {
+		vsp = max(vsp, jump_spd/jump_dampener);
 	}
 
 	// apply movement ///////////////////////////////////////////
